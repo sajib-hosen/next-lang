@@ -45,3 +45,31 @@ export const getValue = (
 };
 
 export const langKeys = Object.keys(langs);
+
+export interface LangNav {
+    key: MyObjectKeyTypes;
+    label: string;
+}
+
+export const langNav: LangNav[] = [
+    {
+        key: "en",
+        label: "English",
+    },
+    {
+        key: "ch",
+        label: "Chinese",
+    },
+    {
+        key: "bd",
+        label: "Bangla",
+    },
+    {
+        key: "pk",
+        label: "Urdu",
+    },
+    {
+        key: "hi",
+        label: "Hindi",
+    },
+];

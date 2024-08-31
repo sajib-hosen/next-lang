@@ -1,6 +1,6 @@
 "use client";
 
-import { MyObjectKeyTypes, getValue } from "@/data/lang.data";
+import { MyObjectKeyTypes, getValue, langNav } from "@/data/lang.data";
 import useMyRouter from "@/hooks/useMyRouters.hook";
 import React from "react";
 
@@ -15,19 +15,23 @@ const BaseHome: React.FC<BaseHomeProps> = ({ currentLn }) => {
         <div className=" space-x-4">
             <div className=" flex justify-center items-center ">
                 <div className=" space-x-4 p-2 ">
-                    <button onClick={() => switchLanguage("en")}>
-                        English
-                    </button>
-                    <button onClick={() => switchLanguage("ch")}>
-                        Chinese
-                    </button>
-                    <button onClick={() => switchLanguage("bd")}>Bangla</button>
-                    <button onClick={() => switchLanguage("pk")}>Urdu</button>
-                    <button onClick={() => switchLanguage("hi")}>Hindi</button>
+                    {langNav.length
+                        ? langNav.map((e) => (
+                              <button
+                                  className={`${
+                                      currentLn === e.key ? "border-b" : ""
+                                  }`}
+                                  key={e.key}
+                                  onClick={() => switchLanguage(e.key)}
+                              >
+                                  {e.label}
+                              </button>
+                          ))
+                        : null}
                 </div>
             </div>
 
-            <div className=" flex justify-center p-10">
+            <div className=" flex justify-center p-10 text-3xl">
                 <div className=" text-center">
                     <p>{getValue(currentLn, "name")}</p>
                     <p>{getValue(currentLn, "phone")}</p>
