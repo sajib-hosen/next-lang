@@ -37,11 +37,8 @@ export type EachObj = typeof en;
 
 export type MyObjectKeyTypes = keyof typeof langs;
 
-export const getValue = (
-    ln: MyObjectKeyTypes = defaultLn,
-    key: keyof EachObj
-) => {
-    return langs[ln][key];
+export const getLangData = (ln: MyObjectKeyTypes = defaultLn) => {
+    return langs[ln];
 };
 
 export const langKeys = Object.keys(langs);

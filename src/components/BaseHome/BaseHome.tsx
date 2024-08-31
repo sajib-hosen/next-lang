@@ -1,6 +1,6 @@
 "use client";
 
-import { MyObjectKeyTypes, getValue, langNav } from "@/data/lang.data";
+import { MyObjectKeyTypes, getLangData, langNav } from "@/data/lang.data";
 import useMyRouter from "@/hooks/useMyRouters.hook";
 import React from "react";
 
@@ -10,6 +10,8 @@ interface BaseHomeProps {
 
 const BaseHome: React.FC<BaseHomeProps> = ({ currentLn }) => {
     const { switchLanguage } = useMyRouter();
+
+    const lanData = getLangData(currentLn);
 
     return (
         <div className=" space-x-4">
@@ -33,8 +35,8 @@ const BaseHome: React.FC<BaseHomeProps> = ({ currentLn }) => {
 
             <div className=" flex justify-center p-10 text-3xl">
                 <div className=" text-center">
-                    <p>{getValue(currentLn, "name")}</p>
-                    <p>{getValue(currentLn, "phone")}</p>
+                    <p>{lanData.name}</p>
+                    <p>{lanData.phone}</p>
                 </div>
             </div>
         </div>
